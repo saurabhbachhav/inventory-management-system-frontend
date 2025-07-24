@@ -1,4 +1,3 @@
-````markdown
 # 🖥️ Inventory Management System - Frontend
 
 A simple React + Vite frontend for the Inventory Management System (IMS).  
