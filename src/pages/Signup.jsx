@@ -1,5 +1,6 @@
+import React from "react";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate ,Link } from "react-router-dom";
 import API from "../api";
 import { toast } from "react-toastify";
 
@@ -12,10 +13,10 @@ function Signup() {
     e.preventDefault();
     try {
       await API.post("/register", { username, password });
-      toast.success("🎉 User created! Please log in.");
+      toast.success("User created! Please log in. 🎉 ");
       navigate("/login");
     } catch (err) {
-      toast.error("⚠️ User already exists or error occurred");
+      toast.error("User already exists or error occurred");
     }
   };
 
@@ -67,6 +68,15 @@ function Signup() {
             Register
           </button>
         </form>
+        <p className="text-center text-sm text-gray-600 mt-4">
+          Already have an account?{" "}
+          <Link
+            to="/login"
+            className="text-[#0066CC] font-medium hover:underline"
+          >
+            Login
+          </Link>
+        </p>
       </div>
     </div>
   );

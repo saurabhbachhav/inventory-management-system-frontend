@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import API from "../api";
 import { toast } from "react-toastify";
 
@@ -14,10 +14,10 @@ function Login() {
     try {
       const res = await API.post("/login", { username, password });
       localStorage.setItem("token", res.data.access_token);
-      toast.success("✅ Logged in successfully!");
+      toast.success("Logged in successfully!");
       navigate("/dashboard");
     } catch (err) {
-      toast.error("❌ Invalid credentials");
+      toast.error("Invalid credentials");
     }
   };
 
@@ -69,6 +69,15 @@ function Login() {
             Login
           </button>
         </form>
+        <p className="text-center text-sm text-gray-600 mt-4">
+          Don’t have an account?{" "}
+          <Link
+            to="/signup"
+            className="text-[#0066CC] font-medium hover:underline"
+          >
+            Sign up
+          </Link>
+        </p>
       </div>
     </div>
   );

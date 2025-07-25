@@ -12,7 +12,7 @@ function Dashboard() {
       const token = localStorage.getItem("token");
 
       if (!token) {
-        toast.error("⚠️ Token expired. Please login again.");
+        toast.error("Token expired. Please login again.");
         setTimeout(() => navigate("/login"), 500); // Avoid instant redirect loop
         return;
       }
@@ -23,7 +23,7 @@ function Dashboard() {
         });
         setProducts(res.data);
       } catch (error) {
-        toast.error("⚠️ Session expired or API error.");
+        toast.error("Session expired or API error.");
         localStorage.removeItem("token");
         setTimeout(() => navigate("/login"), 500); // Also delayed
       }

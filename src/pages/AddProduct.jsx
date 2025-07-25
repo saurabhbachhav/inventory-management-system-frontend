@@ -24,10 +24,10 @@ function AddProduct() {
     e.preventDefault();
     try {
       await API.post("/products", form);
-      toast.success("✅ Product added successfully!");
+      toast.success("Product added successfully!");
       navigate("/dashboard");
     } catch (err) {
-      toast.error("❌ Failed to add product. Please try again.");
+      toast.error("Failed to add product. Please try again.");
     }
   };
 

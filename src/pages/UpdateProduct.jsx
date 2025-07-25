@@ -15,7 +15,7 @@ function UpdateProduct() {
         const res = await API.get("/products");
         const found = res.data.find((p) => p._id === id);
         if (!found) {
-          toast.error("❌ Product not found");
+          toast.error("Product not found");
           return navigate("/dashboard");
         }
         setProduct(found);
@@ -35,10 +35,10 @@ function UpdateProduct() {
       await API.put(`/products/${id}/quantity`, {
         quantity: parseInt(quantity),
       });
-      toast.success("✅ Product quantity updated!");
+      toast.success("Product quantity updated!");
       navigate("/dashboard");
     } catch (err) {
-      toast.error("❌ Error updating quantity");
+      toast.error("Error updating quantity");
     }
   };
 
